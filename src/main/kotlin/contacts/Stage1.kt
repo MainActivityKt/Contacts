@@ -24,7 +24,7 @@ Below is an example of how your output might look. Lines that start with > repre
 
 const val SUCCESS_MESSAGE = "A record created!\nA Phone Book with a single record created!"
 
-
+@Suppress("UNUSED_VARIABLE")
 fun main() {
     val name = getInput("Enter the name of the person:")
     val lastName = getInput("Enter the surname of the person:")

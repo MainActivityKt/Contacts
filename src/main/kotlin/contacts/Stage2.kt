@@ -27,7 +27,6 @@ enum class Options(val value: String) {
 
 class PhoneBook {
     private val contacts = mutableListOf<Contact>()
-    private var lastId = 1
 
     private fun addNewContact() {
         Contact("", "", "").apply {
@@ -124,17 +123,17 @@ class PhoneBook {
 
 
 fun isPhoneNumberValid(input: String): Boolean {
-    val group1 = Regex("""\+?\(?[0-9A-Za-z]+\)?""")
-    val group2 = Regex("""\(?\+?[0-9A-Za-z]{2,}\)?""")
+    val firstGroupPattern = Regex("""\+?\(?[0-9A-Za-z]+\)?""")
+    val nextGroupsPattern = Regex("""\(?\+?[0-9A-Za-z]{2,}\)?""")
     val separator = (Regex("""[- ]"""))
     val parenthesisCount = input.count { it in "()" }
 
     input.split(separator).forEachIndexed { index, s ->
         if (parenthesisCount > 2 || s.count { it in "()" } % 2 != 0) return false
         if (index == 0) {
-            if(!group1.matches(s)) return false
+            if(!firstGroupPattern.matches(s)) return false
         }
-        else if (!group2.matches(s)) return false
+        else if (!nextGroupsPattern.matches(s)) return false
     }
     return true
 }
