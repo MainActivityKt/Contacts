@@ -1,4 +1,6 @@
-package contacts
+package stage1
+
+import utils.getInput
 
 /*
 Description

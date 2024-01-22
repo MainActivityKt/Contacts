@@ -1,14 +1,7 @@
-package contacts
+package stage2
 
-const val MENU = "Enter action (add, remove, edit, count, list, exit): "
-const val ENTER_FIRSTNAME = "Enter the name:"
-const val ENTER_LASTNAME = "Enter the surname:"
-const val ENTER_NUMBER = "Enter the number:"
-const val WRONG_NUMBER = "Wrong number format!"
-const val RECORD_ADDED = "The record added."
-const val UPDATED_RECORD = "The record updated!"
-const val SELECT_RECORD = "Select a record:"
-const val SELECT_FIELD = "Select a field (name, surname, number): "
+import utils.*
+
 
 data class Contact(var firstName: String, var lastName: String, var number: String?) {
     override fun toString(): String {
@@ -16,7 +9,7 @@ data class Contact(var firstName: String, var lastName: String, var number: Stri
     }
 }
 
-enum class Options(val value: String) {
+enum class Option(val value: String) {
     ADD("add"),
     REMOVE("remove"),
     EDIT("edit"),
@@ -72,15 +65,15 @@ class PhoneBook {
 
     fun start() {
         var input = ""
-        while (input != Options.EXIT.value) {
+        while (input != Option.EXIT.value) {
             input = getInput(MENU)
             when (input) {
-                Options.ADD.value -> addNewContact()
-                Options.REMOVE.value -> removeContact()
-                Options.EDIT.value -> performEdit()
-                Options.COUNT.value -> printCount()
-                Options.LIST.value -> printAllContacts()
-                Options.EXIT.value -> break
+                Option.ADD.value -> addNewContact()
+                Option.REMOVE.value -> removeContact()
+                Option.EDIT.value -> performEdit()
+                Option.COUNT.value -> printCount()
+                Option.LIST.value -> printAllContacts()
+                Option.EXIT.value -> break
             }
         }
     }
