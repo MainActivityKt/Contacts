@@ -1,7 +1,5 @@
 package stage2
-
 import utils.*
-
 
 data class Contact(var firstName: String, var lastName: String, var number: String?) {
     override fun toString(): String {
@@ -66,7 +64,7 @@ class PhoneBook {
     fun start() {
         var input = ""
         while (input != Option.EXIT.value) {
-            input = getInput(MENU)
+            input = getInput(MENU_stage2)
             when (input) {
                 Option.ADD.value -> addNewContact()
                 Option.REMOVE.value -> removeContact()
@@ -89,7 +87,7 @@ class PhoneBook {
             printAllContacts()
             print(SELECT_RECORD)
             val id = readln().toInt()
-            print(SELECT_FIELD)
+            print(SELECT_FIELD_PERSON)
             val field = readln()
             println()
             updateContact(id, field)
@@ -112,23 +110,6 @@ class PhoneBook {
             println("${i + 1}. $contact")
         }
     }
-}
-
-
-fun isPhoneNumberValid(input: String): Boolean {
-    val firstGroupPattern = Regex("""\+?\(?[0-9A-Za-z]+\)?""")
-    val nextGroupsPattern = Regex("""\(?\+?[0-9A-Za-z]{2,}\)?""")
-    val separator = (Regex("""[- ]"""))
-    val parenthesisCount = input.count { it in "()" }
-
-    input.split(separator).forEachIndexed { index, s ->
-        if (parenthesisCount > 2 || s.count { it in "()" } % 2 != 0) return false
-        if (index == 0) {
-            if(!firstGroupPattern.matches(s)) return false
-        }
-        else if (!nextGroupsPattern.matches(s)) return false
-    }
-    return true
 }
 
 fun main() {
