@@ -70,7 +70,7 @@ Stage implementation: [PhonebookOrganizer.kt](src/main/kotlin/PhonebookOrganizer
 ## Stage 3/4: Upgrade the contacts
 In this stage:
 - The program is expanded to store information not only about people, but also organizations.
-- Two more properties are added to keep track of creation date and lst update date and time for each contact.
+- Two more properties are added to keep track of creation date and last modfied date and time, for each contact.
 - A base class is created, containing information relevant to both Person and Organization contacts, such as name, phone number, and dates.
 - Two classes inheriting this base class are created, for Persons and Organizations, containing the unique attributes to each field, practising **inheritance**.
 
