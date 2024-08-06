@@ -11,7 +11,8 @@ fun getContact(): Contact {
     val surname: String = readln()
     println("Enter the number:")
     val number: String = readln()
-    val contact = Contact(name, surname, number)
+    val contact = Contact(name, surname)
+    contact.number = number
     return contact
 }
 
