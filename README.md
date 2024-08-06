@@ -66,3 +66,84 @@ Stage implementation: [PhonebookOrganizer.kt](src/main/kotlin/PhonebookOrganizer
     Enter action (add, remove, edit, count, list, exit): > list
     1. John Smith, [no number]
     Enter action (add, remove, edit, count, list, exit): > exit
+
+## Stage 3/4: Upgrade the contacts
+In this stage:
+- The program is expanded to store information not only about people, but also organizations.
+- Two more properties are added to keep track of creation date and lst update date and time for each contact.
+- A base class is created, containing information relevant to both Person and Organization contacts, such as name, phone number, and dates.
+- Two classes inheriting this base class are created, for Persons and Organizations, containing the unique attributes to each field, practising **inheritance**.
+
+[Open stage 3 on Hyperskill](https://hyperskill.org/projects/261/stages/1323/implementt)
+
+Stage implementation: [PunctualPhonebookOrganizer.kt](src/main/kotlin/PunctualPhonebookOrganizer.kt)
+
+Example:
+
+    Enter action (add, remove, edit, count, info, exit): > add
+    Enter the type (person, organization): > person
+    Enter the name: > John
+    Enter the surname: > Smith
+    Enter the birth date: >
+    Bad birth date!
+    Enter the gender (M, F): >
+    Bad gender!
+    Enter the number: > +0 (123) 456-789-ABcd
+    The record added.
+    
+    Enter action (add, remove, edit, count, info, exit): > add
+    Enter the type (person, organization): > organization
+    Enter the organization name: > Pizza Shop
+    Enter the address: > Wall St. 1
+    Enter the number: > +0 (123) 456-789-9999
+    The record added.
+              
+    Enter action (add, remove, edit, count, info, exit): > info
+    1. John Smith
+    2. Pizza Shop
+    Enter index to show info: > 2
+    Organization name: Pizza shop
+    Address: Wall St. 1
+    Number: +0 (123) 456-789-9999
+    Time created: 2018-01-01T00:00
+    Time last edit: 2018-01-01T00:00
+    
+    Enter action (add, remove, edit, count, info, exit): > edit
+    1. John Smith
+    2. Pizza Shop
+    Select a record: > 1
+    Select a field (name, surname, birth, gender, number): > number
+    Enter number: > (123) 234 345-456
+    The record updated!
+    
+    Enter action (add, remove, edit, count, info, exit): > info
+    1. John Smith
+    2. Pizza Shop
+    Select a record: > 1
+    Name: John
+    Surname: Smith
+    Birth date: [no data]
+    Gender: [no data]
+    Number: (123) 234 345-456
+    Time created: 2018-01-01T00:00
+    Time last edit: 2018-01-01T00:01
+    
+    Enter action (add, remove, edit, count, info, exit): > edit
+    1. John Smith
+    2. Pizza Shop
+    Select a record: > 2
+    Select a field (address, number): > address
+    Enter address: > Wall St. 7
+    The record updated!
+    
+    Enter action (add, remove, edit, count, info, exit): > info
+    1. John Smith
+    2. Pizza Shop
+    Enter index to show info: > 2
+    Organization name: Pizza shop
+    Address: Wall St. 7
+    Number: +0 (123) 456-789-9999
+    Time created: 2018-01-01T00:00
+    Time last edit: 2018-01-01T00:02
+    
+    Enter action (add, remove, edit, count, info, exit): > exit

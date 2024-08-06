@@ -4,9 +4,15 @@ package contacts.utils
 
 object Utils {
     const val MENU = "Enter action (add, remove, edit, count, list, exit): "
+    const val MENU_EXTENDED = "Enter action (add, remove, edit, count, info, exit) "
+    const val ENTER_CONTACT_TYPE = "Enter the type (person, organization): "
 
-    enum class Option { ADD, REMOVE, EDIT, COUNT, LIST, EXIT }
-    enum class Field { NAME, SURNAME, NUMBER }
+    enum class Option { ADD, REMOVE, EDIT, COUNT, INFO, LIST, EXIT }
+    enum class Field { NAME, SURNAME, BIRTH, GENDER, NUMBER, ADDRESS }
+    enum class ContactType { PERSON, ORGANIZATION }
+    enum class Gender(val letter: String) {
+        MALE("M"), FEMALE("F")
+    }
 
     data class Contact(var name: String, var surname: String) {
         var number: String? = null
