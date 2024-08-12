@@ -27,7 +27,7 @@ sealed class ContactRecord {
     abstract fun changeField(fieldName: String, newValue: String)
     // A method that takes a string that represents a property that the class is able to change and its new value.
     abstract fun getAllFieldsValues(): String
-    //A method that returns a string representation of all of  property values together.
+    //A method that returns a string representation of all property values together.
 }
 
 @Serializable
