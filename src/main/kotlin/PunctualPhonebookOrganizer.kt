@@ -10,7 +10,12 @@ import contacts.utils.isValidPhoneNumber
 import kotlinx.datetime.*
 import java.time.DateTimeException
 
-abstract class Contact(open var name: String, open var number: String?, open val creationDate: Instant,  open var lastUpdateDate: Instant)
+abstract class Contact(
+    open var name: String,
+    open var number: String?,
+    open val creationDate: Instant,
+    open var lastUpdateDate: Instant,
+)
 
 data class Person(
     var firstName: String,
@@ -230,5 +235,6 @@ class PunctualPhonebookOrganizer() {
 }
 
 fun main() {
+    println("3".uppercase())
     PunctualPhonebookOrganizer().startPhonebook()
 }

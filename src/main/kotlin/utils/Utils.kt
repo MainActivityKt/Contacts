@@ -7,7 +7,13 @@ object Utils {
     const val MENU_EXTENDED = "Enter action (add, remove, edit, count, info, exit) "
     const val ENTER_CONTACT_TYPE = "Enter the type (person, organization): "
 
-    enum class Option { ADD, REMOVE, EDIT, COUNT, INFO, LIST, EXIT }
+    enum class Option (val actions: String = "") {
+        MENU("add, list, search, count, exit"),
+        SEARCH("[number], back, again"),
+        RECORD("edit, delete, menu"),
+        LIST("[number], back"),
+        BACK, AGAIN, DELETE,ADD, REMOVE, EDIT, COUNT, INFO, EXIT }
+
     enum class Field { NAME, SURNAME, BIRTH, GENDER, NUMBER, ADDRESS }
     enum class ContactType { PERSON, ORGANIZATION }
     enum class Gender(val letter: String) {
@@ -27,10 +33,13 @@ object Utils {
                     null
                 }
             }
-
         override fun toString(): String {
             return "$name $surname, $number"
         }
+    }
+    fun getInput(message: String): String {
+        print(message)
+        return readln()
     }
 
 }

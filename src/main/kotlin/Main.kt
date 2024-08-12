@@ -1,5 +1,5 @@
 package contacts
 
-fun main() {
-    println("Hello World!")
+fun main(args: Array<String>) {
+    println("This file has been intentionally left empty.")
 }

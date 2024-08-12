@@ -4,6 +4,7 @@ import contacts.utils.Utils.Contact
 import contacts.utils.Utils.MENU
 import contacts.utils.Utils.Option
 import contacts.utils.Utils.Field
+import contacts.utils.Utils.getInput
 
 class PhonebookOrganizer {
 
@@ -23,11 +24,6 @@ class PhonebookOrganizer {
             println(MENU)
             input = readln()
         }
-    }
-
-    private fun getInput(message: String): String {
-        print(message)
-        return readln()
     }
 
     private fun addNewContact() {
