@@ -131,7 +131,7 @@ class OrganizationContact(
     }
 }
 
-class AllInOnePhonebook(fileName: String) {
+class AllInOnePhonebook(fileName: String, deleteFileOnExit: Boolean = true) {
     private lateinit var file: File
     private val phoneBook = mutableListOf<ContactRecord>()
     private lateinit var currentMenu: Option
@@ -144,7 +144,7 @@ class AllInOnePhonebook(fileName: String) {
             if (!exists()) {
                 createNewFile()
             }
-            deleteOnExit()
+            if (deleteFileOnExit) deleteOnExit()
         }
     }
 

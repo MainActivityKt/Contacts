@@ -4,6 +4,7 @@ import contacts.utils.Utils.Contact
 
 const val SUCCESS_MESSAGE = "A record created!\n" + "A Phone Book with a single record created!"
 
+
 fun getContact(): Contact {
     println("Enter the name of the person:")
     val name: String = readln()

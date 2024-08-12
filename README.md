@@ -147,3 +147,14 @@ Example:
     Time last edit: 2018-01-01T00:02
     
     Enter action (add, remove, edit, count, info, exit): > exit
+
+## Stage 4/4: Searching
+
+In this stage:
+- More abstraction is applied; the functions for changing the value of a contact's property, returning the string representation of all properties' values, and returning all the modifiable properties of a contact, are now abstract functions in base class.
+- Contacts are now saved to files; the filename is passed as an argument to the main function, the program either opens or creates this new file, and saves the **serialized** versions of all the contacts to that file. The user can choose to keep or delete that file upon program's termination. It's not kept by default.
+- The search functionality is implemented; it supports searching not for contacts' names, but any other details such as phone number, address, or birthday date.
+
+[Open stage 4 on Hyperskill](https://hyperskill.org/projects/261/stages/1324/implement)
+
+Stage implementation: [AllInOnePhonebook.kt](src/main/kotlin/AllInOnePhonebook.kt)
